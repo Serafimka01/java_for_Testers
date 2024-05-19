@@ -17,4 +17,23 @@ public class TriangleTests {
         double result = triangle.area();
         Assertions.assertEquals(6, result);
     }
+
+    @Test
+    public void testSideTriangleIsNegative() {
+        try {
+            new Triangle(-3, 4, 5);
+            Assertions.fail();
+        } catch (IllegalArgumentException ex) {
+            //ok
+        }
+    }
+
+    @Test
+    public void testNonexistentTriangle() {
+        try {
+            new Triangle(1, 2, 4);
+        } catch (IllegalArgumentException ex) {
+            //ok
+        }
+    }
 }
